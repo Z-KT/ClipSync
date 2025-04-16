@@ -26,7 +26,7 @@ ClipSync 是一个基于 SwiftUI 开发的 iOS 剪贴板同步工具，它允许
 
 1. 克隆项目到本地：
 ```bash
-git clone https://github.com/yourusername/ClipSync.git
+git clone https://github.com/Z-KT/ClipSync.git
 ```
 
 2. 使用 Xcode 打开 `ClipSync.xcodeproj` 文件
