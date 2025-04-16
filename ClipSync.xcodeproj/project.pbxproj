@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		141BB41D2D71207500161400 /* NIOPosix in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB41C2D71207500161400 /* NIOPosix */; };
+		141BB41F2D71207500161400 /* NIOTLS in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB41E2D71207500161400 /* NIOTLS */; };
+		141BB4212D71207500161400 /* NIOTestUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB4202D71207500161400 /* NIOTestUtils */; };
+		141BB4232D71207500161400 /* NIOWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB4222D71207500161400 /* NIOWebSocket */; };
+		141BB4252D71207500161400 /* _NIOConcurrency in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB4242D71207500161400 /* _NIOConcurrency */; };
+		141BB4272D71207500161400 /* _NIOFileSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB4262D71207500161400 /* _NIOFileSystem */; };
+		141BB4292D71207500161400 /* _NIOFileSystemFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = 141BB4282D71207500161400 /* _NIOFileSystemFoundationCompat */; };
+		14AD1BB02CF722B60082F041 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BAF2CF722B60082F041 /* NIO */; };
+		14AD1BB22CF722B60082F041 /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BB12CF722B60082F041 /* NIOCore */; };
+		14AD1BB62CF7232B0082F041 /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BB52CF7232B0082F041 /* NIOConcurrencyHelpers */; };
+		14AD1BB82CF7232B0082F041 /* NIOEmbedded in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BB72CF7232B0082F041 /* NIOEmbedded */; };
+		14AD1BBA2CF7232B0082F041 /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BB92CF7232B0082F041 /* NIOFoundationCompat */; };
+		14AD1BD52CF747F80082F041 /* NIOHTTP1 in Frameworks */ = {isa = PBXBuildFile; productRef = 14AD1BD42CF747F80082F041 /* NIOHTTP1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14AD1B8D2CF70C060082F041 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14AD1B742CF70C050082F041 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14AD1B7B2CF70C050082F041;
+			remoteInfo = ClipSync;
+		};
+		14AD1B972CF70C060082F041 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14AD1B742CF70C050082F041 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14AD1B7B2CF70C050082F041;
+			remoteInfo = ClipSync;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14AD1B7C2CF70C050082F041 /* ClipSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14AD1B8C2CF70C060082F041 /* ClipSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14AD1B962CF70C060082F041 /* ClipSyncUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipSyncUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1470BBC42D88AA6D0044A039 /* Exceptions for "ClipSync" folder in "ClipSync" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 14AD1B7B2CF70C050082F041 /* ClipSync */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		14AD1B7E2CF70C050082F041 /* ClipSync */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1470BBC42D88AA6D0044A039 /* Exceptions for "ClipSync" folder in "ClipSync" target */,
+			);
+			path = ClipSync;
+			sourceTree = "<group>";
+		};
+		14AD1B8F2CF70C060082F041 /* ClipSyncTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClipSyncTests;
+			sourceTree = "<group>";
+		};
+		14AD1B992CF70C060082F041 /* ClipSyncUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClipSyncUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14AD1B792CF70C050082F041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14AD1BB62CF7232B0082F041 /* NIOConcurrencyHelpers in Frameworks */,
+				141BB4292D71207500161400 /* _NIOFileSystemFoundationCompat in Frameworks */,
+				14AD1BBA2CF7232B0082F041 /* NIOFoundationCompat in Frameworks */,
+				141BB4252D71207500161400 /* _NIOConcurrency in Frameworks */,
+				141BB4212D71207500161400 /* NIOTestUtils in Frameworks */,
+				141BB4272D71207500161400 /* _NIOFileSystem in Frameworks */,
+				141BB41D2D71207500161400 /* NIOPosix in Frameworks */,
+				14AD1BB22CF722B60082F041 /* NIOCore in Frameworks */,
+				141BB4232D71207500161400 /* NIOWebSocket in Frameworks */,
+				14AD1BD52CF747F80082F041 /* NIOHTTP1 in Frameworks */,
+				14AD1BB02CF722B60082F041 /* NIO in Frameworks */,
+				14AD1BB82CF7232B0082F041 /* NIOEmbedded in Frameworks */,
+				141BB41F2D71207500161400 /* NIOTLS in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B892CF70C060082F041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B932CF70C060082F041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14AD1B732CF70C050082F041 = {
+			isa = PBXGroup;
+			children = (
+				14AD1B7E2CF70C050082F041 /* ClipSync */,
+				14AD1B8F2CF70C060082F041 /* ClipSyncTests */,
+				14AD1B992CF70C060082F041 /* ClipSyncUITests */,
+				14AD1B7D2CF70C050082F041 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14AD1B7D2CF70C050082F041 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14AD1B7C2CF70C050082F041 /* ClipSync.app */,
+				14AD1B8C2CF70C060082F041 /* ClipSyncTests.xctest */,
+				14AD1B962CF70C060082F041 /* ClipSyncUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14AD1B7B2CF70C050082F041 /* ClipSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14AD1BA02CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSync" */;
+			buildPhases = (
+				14AD1B782CF70C050082F041 /* Sources */,
+				14AD1B792CF70C050082F041 /* Frameworks */,
+				14AD1B7A2CF70C050082F041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				14AD1B7E2CF70C050082F041 /* ClipSync */,
+			);
+			name = ClipSync;
+			packageProductDependencies = (
+				14AD1BAF2CF722B60082F041 /* NIO */,
+				14AD1BB12CF722B60082F041 /* NIOCore */,
+				14AD1BB52CF7232B0082F041 /* NIOConcurrencyHelpers */,
+				14AD1BB72CF7232B0082F041 /* NIOEmbedded */,
+				14AD1BB92CF7232B0082F041 /* NIOFoundationCompat */,
+				14AD1BD42CF747F80082F041 /* NIOHTTP1 */,
+				141BB41C2D71207500161400 /* NIOPosix */,
+				141BB41E2D71207500161400 /* NIOTLS */,
+				141BB4202D71207500161400 /* NIOTestUtils */,
+				141BB4222D71207500161400 /* NIOWebSocket */,
+				141BB4242D71207500161400 /* _NIOConcurrency */,
+				141BB4262D71207500161400 /* _NIOFileSystem */,
+				141BB4282D71207500161400 /* _NIOFileSystemFoundationCompat */,
+			);
+			productName = ClipSync;
+			productReference = 14AD1B7C2CF70C050082F041 /* ClipSync.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14AD1B8B2CF70C060082F041 /* ClipSyncTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14AD1BA32CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSyncTests" */;
+			buildPhases = (
+				14AD1B882CF70C060082F041 /* Sources */,
+				14AD1B892CF70C060082F041 /* Frameworks */,
+				14AD1B8A2CF70C060082F041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14AD1B8E2CF70C060082F041 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				14AD1B8F2CF70C060082F041 /* ClipSyncTests */,
+			);
+			name = ClipSyncTests;
+			packageProductDependencies = (
+			);
+			productName = ClipSyncTests;
+			productReference = 14AD1B8C2CF70C060082F041 /* ClipSyncTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		14AD1B952CF70C060082F041 /* ClipSyncUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14AD1BA62CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSyncUITests" */;
+			buildPhases = (
+				14AD1B922CF70C060082F041 /* Sources */,
+				14AD1B932CF70C060082F041 /* Frameworks */,
+				14AD1B942CF70C060082F041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14AD1B982CF70C060082F041 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				14AD1B992CF70C060082F041 /* ClipSyncUITests */,
+			);
+			name = ClipSyncUITests;
+			packageProductDependencies = (
+			);
+			productName = ClipSyncUITests;
+			productReference = 14AD1B962CF70C060082F041 /* ClipSyncUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14AD1B742CF70C050082F041 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					14AD1B7B2CF70C050082F041 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					14AD1B8B2CF70C060082F041 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 14AD1B7B2CF70C050082F041;
+					};
+					14AD1B952CF70C060082F041 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 14AD1B7B2CF70C050082F041;
+					};
+				};
+			};
+			buildConfigurationList = 14AD1B772CF70C050082F041 /* Build configuration list for PBXProject "ClipSync" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14AD1B732CF70C050082F041;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 14AD1B7D2CF70C050082F041 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14AD1B7B2CF70C050082F041 /* ClipSync */,
+				14AD1B8B2CF70C060082F041 /* ClipSyncTests */,
+				14AD1B952CF70C060082F041 /* ClipSyncUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14AD1B7A2CF70C050082F041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B8A2CF70C060082F041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B942CF70C060082F041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14AD1B782CF70C050082F041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B882CF70C060082F041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14AD1B922CF70C060082F041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14AD1B8E2CF70C060082F041 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14AD1B7B2CF70C050082F041 /* ClipSync */;
+			targetProxy = 14AD1B8D2CF70C060082F041 /* PBXContainerItemProxy */;
+		};
+		14AD1B982CF70C060082F041 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14AD1B7B2CF70C050082F041 /* ClipSync */;
+			targetProxy = 14AD1B972CF70C060082F041 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		14AD1B9E2CF70C060082F041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "\"ClipSync/Info.plist\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		14AD1B9F2CF70C060082F041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "\"ClipSync/Info.plist\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14AD1BA12CF70C060082F041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClipSync/Preview Content\"";
+				DEVELOPMENT_TEAM = 5USU9YW8BX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClipSync/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "辅助工具";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSync;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14AD1BA22CF70C060082F041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClipSync/Preview Content\"";
+				DEVELOPMENT_TEAM = 5USU9YW8BX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClipSync/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "辅助工具";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSync;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		14AD1BA42CF70C060082F041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSyncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipSync";
+			};
+			name = Debug;
+		};
+		14AD1BA52CF70C060082F041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSyncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipSync";
+			};
+			name = Release;
+		};
+		14AD1BA72CF70C060082F041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSyncUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClipSync;
+			};
+			name = Debug;
+		};
+		14AD1BA82CF70C060082F041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zkt.ClipSyncUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClipSync;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14AD1B772CF70C050082F041 /* Build configuration list for PBXProject "ClipSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14AD1B9E2CF70C060082F041 /* Debug */,
+				14AD1B9F2CF70C060082F041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14AD1BA02CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14AD1BA12CF70C060082F041 /* Debug */,
+				14AD1BA22CF70C060082F041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14AD1BA32CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSyncTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14AD1BA42CF70C060082F041 /* Debug */,
+				14AD1BA52CF70C060082F041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14AD1BA62CF70C060082F041 /* Build configuration list for PBXNativeTarget "ClipSyncUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14AD1BA72CF70C060082F041 /* Debug */,
+				14AD1BA82CF70C060082F041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.76.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		141BB41C2D71207500161400 /* NIOPosix */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOPosix;
+		};
+		141BB41E2D71207500161400 /* NIOTLS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOTLS;
+		};
+		141BB4202D71207500161400 /* NIOTestUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOTestUtils;
+		};
+		141BB4222D71207500161400 /* NIOWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOWebSocket;
+		};
+		141BB4242D71207500161400 /* _NIOConcurrency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = _NIOConcurrency;
+		};
+		141BB4262D71207500161400 /* _NIOFileSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = _NIOFileSystem;
+		};
+		141BB4282D71207500161400 /* _NIOFileSystemFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = _NIOFileSystemFoundationCompat;
+		};
+		14AD1BAF2CF722B60082F041 /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		14AD1BB12CF722B60082F041 /* NIOCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOCore;
+		};
+		14AD1BB52CF7232B0082F041 /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		14AD1BB72CF7232B0082F041 /* NIOEmbedded */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOEmbedded;
+		};
+		14AD1BB92CF7232B0082F041 /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
+		};
+		14AD1BD42CF747F80082F041 /* NIOHTTP1 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AD1BAE2CF722B60082F041 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOHTTP1;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 14AD1B742CF70C050082F041 /* Project object */;
+}

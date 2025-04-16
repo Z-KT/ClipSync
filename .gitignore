@@ -1,0 +1,68 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## 用户设置
+xcuserdata/
+
+## 兼容性设置
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## 构建生成的文件
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## 原生应用包
+*.app
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## 回放操作
+*.xcuserstate
+
+## Swift软件包管理器
+.build/
+
+## macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 缩略图
+._*
+
+# 可能出现在卷根目录上的文件
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# 可能会创建的目录
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output 

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>剪贴同步</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --bg-color: #f8f9fa;
+      --text-color: #333;
+      --border-radius: 8px;
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      box-sizing: border-box;
+      position: relative;
+    }
+    
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    #target-info {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: center;
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    #target-url {
+      background-color: rgba(67, 97, 238, 0.05);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-weight: 500;
+      color: #3050e0;
+      margin: 0 10px;
+      position: relative;
+      display: inline-block;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(67, 97, 238, 0.2);
+    }
+    
+    #status-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin-left: 10px;
+    }
+    
+    #status-indicator.online {
+      background-color: #4CAF50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+    
+    #status-indicator.offline {
+      background-color: #F44336;
+      box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+    }
+    
+    #history {
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .message-container {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    .message-header {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    
+    .message {
+      width: 100%;
+      padding: 12px;
+      background-color: #e7f5ff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      line-height: 1.5;
+      box-sizing: border-box;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+    
+    .resend-btn {
+      position: absolute;
+      top: calc(50% + 10px); /* 调整位置，考虑message-header的高度 */
+      right: 8px;
+      transform: translateY(-50%);
+      padding: 5px 10px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all 0.2s;
+      opacity: 0;
+      font-size: 12px;
+    }
+    
+    .message-container:hover .resend-btn {
+      opacity: 1;
+    }
+    
+    .resend-btn:hover {
+      background-color: #3050e0;
+    }
+    
+    .resend-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    #input-container {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    
+    #input-wrapper {
+      position: relative;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+    
+    #message-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: var(--border-radius);
+      resize: none; /* 禁用默认的调整大小功能 */
+      min-height: 90px; /* 约3行的高度，由于字体放大了 */
+      height: 90px; /* 默认高度为3行 */
+      max-height: 200px;
+      font-family: inherit;
+      font-size: 16px; /* 加大字体大小 */
+      line-height: 1.5;
+      box-sizing: border-box;
+      box-shadow: var(--box-shadow);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    
+    #message-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    }
+    
+    /* 自定义调整大小的控制柄 */
+    #resize-handle {
+      width: 100%;
+      height: 6px;
+      background-color: transparent;
+      cursor: ns-resize;
+      position: absolute;
+      top: -3px;
+      left: 0;
+      z-index: 10;
+    }
+    
+    #input-hint {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+      text-align: right;
+      padding-bottom: 10px;
+    }
+    
+    #send-button {
+      padding: 0 20px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color 0.2s;
+      font-weight: bold;
+    }
+    
+    #send-button:hover {
+      background-color: #3050e0;
+    }
+    
+    #send-button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    #status {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border-radius: var(--border-radius);
+      z-index: 1000;
+      transition: opacity 0.5s;
+      pointer-events: none; /* 防止状态信息挡住下面的内容 */
+    }
+    
+    .hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>剪贴同步<div id="status-indicator"></div></h1>
+  <div id="history"></div>
+  <div id="input-hint">回车发送 | Shift+回车换行</div>
+  <div id="input-container">
+    <div id="input-wrapper">
+      <div id="resize-handle"></div>
+      <textarea id="message-input" placeholder="请输入消息..."></textarea>
+    </div>
+    <button id="send-button">发送</button>
+  </div>
+  <div id="status" class="hidden"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const targetUrl = '';
+      
+      const statusElement = document.getElementById('status');
+      const historyElement = document.getElementById('history');
+      const messageInput = document.getElementById('message-input');
+      const sendButton = document.getElementById('send-button');
+      const resizeHandle = document.getElementById('resize-handle');
+      const statusIndicator = document.getElementById('status-indicator');
+      
+      // 历史消息存储
+      let messageHistory = [];
+      // 连接状态
+      let isConnected = false;
+      
+      // 从localStorage加载历史记录
+      function loadHistoryFromStorage() {
+        const savedHistory = localStorage.getItem('messageHistory');
+        if (savedHistory) {
+          try {
+            messageHistory = JSON.parse(savedHistory);
+            // 显示所有历史消息
+            messageHistory.forEach(msg => {
+              addMessageToUI(msg.content, msg.timestamp);
+            });
+            
+            // 滚动到底部
+            historyElement.scrollTop = historyElement.scrollHeight;
+          } catch (error) {
+            console.error('加载历史记录失败:', error);
+          }
+        }
+      }
+      
+      // 保存历史记录到localStorage
+      function saveHistoryToStorage() {
+        try {
+          localStorage.setItem('messageHistory', JSON.stringify(messageHistory));
+        } catch (error) {
+          console.error('保存历史记录失败:', error);
+          showStatus('警告: 历史记录保存失败');
+        }
+      }
+      
+      // 页面加载时加载历史记录
+      loadHistoryFromStorage();
+      
+      // 初始状态为离线
+      updateConnectionUI(false);
+      
+      // 如果有目标URL，检查连接状态
+      if (targetUrl) {
+        // 初始检查URL状态
+        checkUrlStatus();
+        // 设置定时器，每2秒检查一次
+        setInterval(checkUrlStatus, 2000);
+      } else {
+        showStatus('错误: 未提供目标URL');
+      }
+      
+      // 更新连接状态UI
+      function updateConnectionUI(connected) {
+        isConnected = connected;
+        
+        if (connected) {
+          statusIndicator.classList.remove('offline');
+          statusIndicator.classList.add('online');
+          sendButton.disabled = false;
+          // 启用所有重发按钮
+          document.querySelectorAll('.resend-btn').forEach(btn => {
+            btn.disabled = false;
+          });
+        } else {
+          statusIndicator.classList.remove('online');
+          statusIndicator.classList.add('offline');
+          sendButton.disabled = true;
+          // 禁用所有重发按钮
+          document.querySelectorAll('.resend-btn').forEach(btn => {
+            btn.disabled = true;
+          });
+        }
+      }
+      
+      // 检查URL状态
+      function checkUrlStatus() {
+        if (!targetUrl) return;
+        
+        fetch(targetUrl, {
+          method: 'OPTIONS',
+          cache: 'no-cache'
+        })
+        .then(response => {
+          updateConnectionUI(response.ok);
+        })
+        .catch(error => {
+          updateConnectionUI(false);
+        });
+      }
+      
+      // 实现自定义调整大小功能
+      let isResizing = false;
+      let startY, startHeight;
+      
+      resizeHandle.addEventListener('mousedown', function(e) {
+        isResizing = true;
+        startY = e.clientY;
+        startHeight = parseInt(document.defaultView.getComputedStyle(messageInput).height, 10);
+        
+        document.addEventListener('mousemove', resizeTextarea);
+        document.addEventListener('mouseup', stopResize);
+        e.preventDefault();
+      });
+      
+      function resizeTextarea(e) {
+        if (!isResizing) return;
+        
+        const newHeight = startHeight - (e.clientY - startY);
+        
+        // 限制高度范围
+        if (newHeight >= 90 && newHeight <= 200) {
+          messageInput.style.height = newHeight + 'px';
+        }
+      }
+      
+      function stopResize() {
+        isResizing = false;
+        document.removeEventListener('mousemove', resizeTextarea);
+        document.removeEventListener('mouseup', stopResize);
+      }
+      
+      // 隐藏状态信息的定时器
+      let statusTimer = null;
+      
+      // 显示状态信息，一秒后隐藏
+      function showStatus(message, autoHide = true) {
+        // 清除之前的定时器
+        if (statusTimer) {
+          clearTimeout(statusTimer);
+        }
+        
+        // 显示新消息
+        statusElement.textContent = message;
+        statusElement.classList.remove('hidden');
+        
+        // 如果需要自动隐藏，设置一秒后隐藏
+        if (autoHide) {
+          statusTimer = setTimeout(function() {
+            statusElement.classList.add('hidden');
+          }, 1000);
+        }
+      }
+      
+      // 获取格式化的当前时间
+      function getCurrentTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      }
+      
+      // 发送消息函数
+      function sendMessage(messageText = null) {
+        const message = messageText || messageInput.value.trim();
+        if (!message) {
+          showStatus('错误: 消息不能为空');
+          return;
+        }
+        
+        if (!targetUrl) {
+          showStatus('错误: 未提供目标URL');
+          return;
+        }
+        
+        if (!isConnected) {
+          showStatus('错误: 连接已断开');
+          return;
+        }
+        
+        // 准备要发送的JSON数据
+        const data = { message: message };
+        
+        // 禁用发送和重发按钮
+        sendButton.disabled = true;
+        document.querySelectorAll('.resend-btn').forEach(btn => {
+          btn.disabled = true;
+        });
+        
+        // 发送请求
+        showStatus('正在发送...', false); // 不自动隐藏
+        fetch(targetUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('网络响应不正常');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // 添加到历史记录
+          addMessageToHistory(message);
+          
+          // 如果是新消息，清空输入框
+          if (!messageText) {
+            messageInput.value = '';
+          }
+          
+          showStatus('发送成功'); // 自动隐藏
+          
+          // 根据连接状态重新启用按钮
+          updateConnectionUI(isConnected);
+        })
+        .catch(error => {
+          showStatus('错误: ' + error.message);
+          // 根据连接状态重新启用按钮
+          updateConnectionUI(isConnected);
+        });
+      }
+      
+      // 将消息添加到UI
+      function addMessageToUI(message, timestamp) {
+        const messageContainer = document.createElement('div');
+        messageContainer.className = 'message-container';
+        
+        // 添加时间戳
+        const timeHeader = document.createElement('div');
+        timeHeader.className = 'message-header';
+        timeHeader.textContent = timestamp;
+        
+        const messageElement = document.createElement('div');
+        messageElement.className = 'message';
+        messageElement.textContent = message;
+        
+        const resendButton = document.createElement('button');
+        resendButton.className = 'resend-btn';
+        resendButton.textContent = '重发';
+        resendButton.disabled = !isConnected;
+        resendButton.addEventListener('click', function() {
+          if (isConnected) {
+            sendMessage(message);
+          } else {
+            showStatus('错误: 连接已断开');
+          }
+        });
+        
+        messageContainer.appendChild(timeHeader);
+        messageContainer.appendChild(messageElement);
+        messageContainer.appendChild(resendButton);
+        
+        historyElement.appendChild(messageContainer);
+        
+        // 滚动到底部
+        historyElement.scrollTop = historyElement.scrollHeight;
+      }
+      
+      // 添加消息到历史记录
+      function addMessageToHistory(message) {
+        // 创建消息对象
+        const messageObj = {
+          content: message,
+          timestamp: getCurrentTime()
+        };
+        
+        // 添加到内存中的历史记录
+        messageHistory.push(messageObj);
+        
+        // 保存到localStorage
+        saveHistoryToStorage();
+        
+        // 添加到UI
+        addMessageToUI(message, messageObj.timestamp);
+      }
+      
+      // 添加事件监听器
+      sendButton.addEventListener('click', function() {
+        if (isConnected) {
+          sendMessage();
+        } else {
+          showStatus('错误: 连接已断开');
+        }
+      });
+      
+      messageInput.addEventListener('keydown', function(event) {
+        // 回车发送，Shift+回车换行
+        if (event.key === 'Enter') {
+          if (event.shiftKey) {
+            // Shift+回车换行，不需要额外处理，浏览器会自动处理
+          } else {
+            // 回车发送
+            event.preventDefault();
+            if (isConnected) {
+              sendMessage();
+            } else {
+              showStatus('错误: 连接已断开');
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
